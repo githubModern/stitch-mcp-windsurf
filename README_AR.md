@@ -1,144 +1,144 @@
-# Google Stitch MCP لبرنامج Windsurf
+# Google Stitch MCP لبرنامج Windsurf (عربي)
 
-**🎨 حوّل أفكار التصميم الخاصة بك إلى كود فورياً باستخدام Google Stitch و Windsurf!**
+**🎨 أنشئ تصاميم واجهات المستخدم واحصل على الكود — مباشرةً من Cascade AI في Windsurf.**
+
+يستخدم الحزمة الرسمية [`@_davideast/stitch-mcp`](https://github.com/davideast/stitch-mcp) من Google.
 
 ---
 
 ## 📖 ماذا يفعل هذا الإعداد
 
-هذا الإعداد يربط Google Stitch (أداة التصميم الذكية من جوجل) مباشرةً ببرنامج Windsurf IDE، ويمنحك **36 أداة قوية** لـ:
+[Google Stitch](https://stitch.withgoogle.com) أداة ذكاء اصطناعي تعمل بـ Gemini 2.5 Pro. تولّد تصاميم واجهات المستخدم + كود HTML/CSS من أوصاف نصية.
 
-- ✨ **توليد واجهات المستخدم** من أوصاف نصية بسيطة
-- 🔄 **تحويل التصاميم إلى كود React/Tailwind** تلقائياً  
-- 🎨 **استخراج رموز التصميم** (الألوان، الخطوط، المسافات)
-- 🌙 **إنشاء وضع ليلي** بنقرة واحدة
-- 📱 **تصميم متجاوب** للجوال/تابلت/كمبيوتر مكتبي
-- ♿ **فحص إمكانية الوصول** (توافق WCAG 2.1)
-- 📦 **تصدير أنظمة التصميم** ومكتبات المكونات
+هذا المستودع يساعدك على ربط Stitch ببرنامج **Windsurf IDE** عبر بروتوكول MCP، لتتمكن من توليد التصاميم والحصول على الكود بدون مغادرة المحرر.
 
 ---
 
-## 🚀 البدء السريع (3 خطوات)
+## 🚀 الإعداد (دقيقتان)
 
-### الخطوة 1: تثبيت خادم Stitch MCP
-```bash
-git clone https://github.com/oogleyskr/stitch-mcp-server.git
-cd stitch-mcp-server
-npm install
-npm run build
+### الخطوة 1: الحصول على مفتاح API
+
+1. اذهب إلى [stitch.withgoogle.com](https://stitch.withgoogle.com) وسجّل الدخول
+2. اذهب إلى [الإعدادات](https://stitch.withgoogle.com/settings) وانسخ **مفتاح API** الخاص بك
+3. أنشئ مشروع واحد على الأقل في Stitch
+
+### الخطوة 2: الإضافة إلى Windsurf
+
+افتح ملف إعدادات MCP في Windsurf:
+
+- **Windows:** `%USERPROFILE%\.codeium\windsurf\mcp_config.json`
+- **Mac/Linux:** `~/.codeium/windsurf/mcp_config.json`
+
+أضف هذا داخل كتلة `"mcpServers"`:
+
+```json
+"stitch": {
+  "command": "npx",
+  "args": ["-y", "@_davideast/stitch-mcp", "proxy"],
+  "env": {
+    "STITCH_API_KEY": "<YOUR_STITCH_API_KEY>"
+  }
+}
 ```
 
-### الخطوة 2: نسخ ملف الإعدادات
-**Windows:**
-```bash
-copy mcp_config.json %USERPROFILE%\.codeium\windsurf\mcp_config.json
-```
+أو انسخ ملف `mcp_config.json` من هذا المستودع واستبدل `<YOUR_STITCH_API_KEY>` بمفتاحك.
 
-**Mac/Linux:**
-```bash
-cp mcp_config.json ~/.codeium/windsurf/mcp_config.json
-```
+### الخطوة 3: إعادة تشغيل Windsurf
 
-### الخطوة 3: إضافة مفتاح API الخاص بك
-1. احصل على مفتاح API من [Google AI Studio](https://aistudio.google.com/apikey)
-2. افتح ملف الإعدادات واستبدل:
-   - `<YOUR_STITCH_API_KEY>` بمفتاح API الفعلي الخاص بك
-   - `<PATH_TO>/stitch-mcp-server/dist/index.js` بالمسار الكامل للخادم الخاص بك
-
-### الخطوة 4: إعادة تشغيل Windsurf
-أغلق وأعد فتح Windsurf. ابحث عن **أيقونة MCPs** في لوحة Cascade - يجب أن يكون Stitch هناك!
+أغلق وأعد فتح Windsurf. سيظهر Stitch **باللون الأخضر** في لوحة MCPs (أعلى يمين Cascade).
 
 ---
 
 ## 💡 كيفية الاستخدام
 
-### توليد تصميم واجهة المستخدم
+افتح Cascade في Windsurf وجرّب هذه الأوامر:
+
 ```
-إنشاء صفحة رئيسية حديثة للتجارة الإلكترونية مع قسم البطل، شبكة المنتجات، وعربة التسوق
+Use Stitch to create a modern dashboard with sidebar navigation and charts.
 ```
 
-### التحويل إلى كود
 ```
-حول هذا التصميم إلى React مع Tailwind CSS واستخرج جميع رموز التصميم
-```
-
-### إنشاء وضع ليلي
-```
-إنشاء نسخة وضع ليلي من هذه الشاشة مع تباين عالٍ
+List all my Stitch projects and screens.
 ```
 
-### فحص إمكانية الوصول
 ```
-حلل هذا التصميم للتأكد من توافق WCAG 2.1 AA وأصلح أي مشاكل
+Get the HTML code for screen X in my project.
+```
+
+```
+Extract the design DNA from my existing dashboard screen,
+then generate a settings page matching the same style.
 ```
 
 ---
 
-## 🛠️ الأدوات المتاحة (36 أداة)
+## 🛠️ أدوات MCP المتاحة
 
-### توليد التصميم
-- **توليد الشاشات** - إنشاء شاشات من النص
-- **القوالب** - استخدام تخطيطات جاهزة (لوحة تحكم، تسجيل دخول، إلخ)
-- **التوليد المجمّع** - إنشاء شاشات متعددة دفعة واحدة
-- **التصاميم الشائعة** - تطبيق اتجاهات واجهة المستخدم الحديثة
+| الأداة | الوصف |
+|--------|-------|
+| `generate_screen_from_text` | إنشاء شاشة من وصف نصي |
+| `get_screen_code` | الحصول على كود HTML/CSS لشاشة |
+| `get_screen_image` | الحصول على لقطة شاشة |
+| `list_projects` | عرض جميع مشاريع Stitch |
+| `list_screens` | عرض شاشات مشروع معين |
+| `extract_design_context` | استخراج الألوان والخطوط وأنماط التخطيط |
+| `build_site` | توليد موقع Astro من الشاشات |
 
-### تحويل الكود
-- **React/TSX** - التحويل إلى مكونات React
-- **إعدادات Tailwind** - استخراج إعداد Tailwind الكامل
-- **متغيرات CSS** - توليد خصائص CSS مخصصة
-- **رموز التصميم** - تصدير رموز نظام التصميم
+---
 
-### التحليل والتحسين
-- **فحص إمكانية الوصول** - فحص توافق WCAG
-- **تحليل التصميم** - استخراج الألوان، الخطوط، المسافات
-- **الاختبار المتجاوب** - متغيرات الجوال/تابلت/كمبيوتر مكتبي
-- **مراجعة الأداء** - اقتراحات تحسين التصميم
+## 🔐 خيارات المصادقة
 
-### التصدير والتوثيق
-- **دليل الأنماط** - توليد توثيق التصميم تلقائياً
-- **مكتبة المكونات** - تصدير مكونات قابلة لإعادة الاستخدام
-- **نظام التصميم** - تصدير نظام التصميم الكامل
-- **التصدير المجمّع** - تصدير جميع شاشات المشروع
+### الخيار أ: مفتاح API (الأسهل)
+فقط عيّن `STITCH_API_KEY` في إعدادات MCP. لا حاجة لـ gcloud.
+
+### الخيار ب: OAuth عبر gcloud
+```bash
+gcloud auth application-default login
+gcloud config set project YOUR_PROJECT_ID
+gcloud beta services mcp enable stitch.googleapis.com --project=YOUR_PROJECT_ID
+```
+
+الإعدادات:
+```json
+"stitch": {
+  "command": "npx",
+  "args": ["-y", "@_davideast/stitch-mcp", "proxy"],
+  "env": {
+    "STITCH_USE_SYSTEM_GCLOUD": "1"
+  }
+}
+```
 
 ---
 
 ## 🔧 استكشاف الأخطاء
 
-**❌ Stitch لا يظهر؟**
-- تحقق من أن الإعدادات في `~/.codeium/windsurf/mcp_config.json`
-- تحقق من أن مسار الخادم صحيح
-- تأكد من إعادة تشغيل Windsurf
-
-**❌ أخطاء في الاتصال؟**
-- شغّل `npm run build` في مجلد stitch-mcp-server
-- تحقق من أن مفتاح API الخاص بك صالح
-- تأكد من تثبيت Node.js 18+
-
-**❌ الأدوات لا تعمل؟**
-- أعد تشغيل Windsurf بالكامل
-- تحقق من لوحة MCP لمعرفة حالة الاتصال
-- تحقق من أذونات مفتاح API الخاص بك
+| المشكلة | الحل |
+|---------|------|
+| Stitch لا يظهر | تأكد من أن الإعدادات في `~/.codeium/windsurf/mcp_config.json` |
+| أخطاء في الاتصال | `npx @_davideast/stitch-mcp doctor --verbose` |
+| أخطاء في المصادقة | تحقق من مفتاح API في [stitch.withgoogle.com/settings](https://stitch.withgoogle.com/settings) |
+| الأدوات لا تعمل | أعد تشغيل Windsurf بالكامل |
+| إعادة ضبط كاملة | `npx @_davideast/stitch-mcp logout --force --clear-config` |
 
 ---
 
 ## 🔒 الأمان
 
-**⚠️ مهم:** لا تشارك مفتاح API الخاص بك أبداً! ملف الإعدادات يستخدم عناصر نائبة. احتفظ بأسرارك بأمان.
+**لا تشارك مفاتيح API الحقيقية أبداً.** هذا المستودع يستخدم `<YOUR_STITCH_API_KEY>` كعنصر نائب.
 
 ---
 
-## 📚 تحتاج مساعدة؟
+## 📚 مصادر
 
-- [وثائق Google Stitch](https://stitch.googleapis.com)
+- [Google Stitch](https://stitch.withgoogle.com)
+- [stitch-mcp على GitHub](https://github.com/davideast/stitch-mcp)
+- [وثائق إعداد Stitch MCP](https://stitch.withgoogle.com/docs/mcp/setup)
 - [دليل Windsurf MCP](https://docs.windsurf.com/windsurf/cascade/mcp)
 - [الإبلاغ عن مشاكل](https://github.com/githubModern/stitch-mcp-windsurf/issues)
 
 ---
 
-## 🤝 المساهمة
+## 📄 الرخصة
 
-وجدت أخطاء أو تريد التحسين؟ افتح issue أو قدم pull request!
-
----
-
-**🎉 برمجة سعيدة بالتصميم المدعوم بالذكاء الاصطناعي!**
+MIT

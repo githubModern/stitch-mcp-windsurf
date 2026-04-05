@@ -1,9 +1,11 @@
 {
   "mcpServers": {
     "stitch": {
-      "command": "node",
+      "command": "npx",
       "args": [
-        "<PATH_TO>/stitch-mcp-server/dist/index.js"
+        "-y",
+        "@_davideast/stitch-mcp",
+        "proxy"
       ],
       "env": {
         "STITCH_API_KEY": "<YOUR_STITCH_API_KEY>"
