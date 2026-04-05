@@ -1,21 +1,27 @@
 # Google Stitch MCP for Windsurf
 
-A complete setup guide for integrating Google Stitch's design-to-code capabilities with Windsurf IDE using the Model Context Protocol (MCP).
+**🎨 Transform your design ideas into code instantly with Google Stitch and Windsurf!**
 
-## 🎯 What This Enables
+---
 
-With Google Stitch MCP, you can:
+## 🌍 Choose Your Language
 
-- **Generate UI screens** from text prompts
-- **Convert designs to React/Tailwind code**
-- **Extract design tokens** (colors, typography, spacing)
-- **Generate dark mode** variants automatically
-- **Create responsive** variants (mobile/tablet/desktop)
-- **Run accessibility audits** (WCAG 2.1 compliance)
-- **Batch generate** multiple screens
-- **Export design systems** and component libraries
+**English:** [README_EN.md](./README_EN.md)  
+**العربية:** [README_AR.md](./README_AR.md)
 
-**36 powerful tools** for design-to-code workflows, all available directly in Windsurf's Cascade AI.
+---
+
+## 📖 What This Does
+
+This setup connects Google Stitch (Google's AI design tool) directly to Windsurf IDE, giving you **36 powerful tools** to:
+
+- ✨ **Generate UI screens** from simple text descriptions
+- 🔄 **Convert designs to React/Tailwind code** automatically  
+- 🎨 **Extract design tokens** (colors, fonts, spacing)
+- 🌙 **Create dark mode** versions with one click
+- 📱 **Make responsive designs** for mobile/tablet/desktop
+- ♿ **Check accessibility** (WCAG 2.1 compliance)
+- 📦 **Export design systems** and component libraries
 
 ## 📋 Prerequisites
 
